@@ -1,3 +1,5 @@
+I am not seeing any difference, here's my css, perhaps I am doing it wrong:
+
 /* ===================================
    OUTREACHY 2026 PORTFOLIO STYLES
    Clean, professional, modern design
@@ -542,19 +544,18 @@ body {
    ================== */
 
 .layout {
-    display: grid;
-    grid-template-columns: 260px 1fr; /* Sidebar + Main content */
-    gap: 40px; /* Space between sidebar and content */
+    display: flex;
+    gap: 32px;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 20px;
 }
 
 /* Sidebar */
 .sidebar {
+    width: 240px;
     position: sticky;
     top: 100px;
-    align-self: start;
+    height: fit-content;
 }
 
 /* TOC Container */
@@ -631,7 +632,6 @@ body {
 /* Main content */
 .main-content {
     flex: 1;
-    width: 100%;
 }
 
 /* Smooth scroll */
@@ -711,3 +711,5 @@ html {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+Help me write a ready to paste complet css file I can just copy and paste directly completely
