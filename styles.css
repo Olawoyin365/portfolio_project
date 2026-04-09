@@ -293,7 +293,7 @@ body {
 
 .contributions-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 24px;
 }
 
@@ -544,9 +544,9 @@ body {
 .layout {
     display: flex;
     gap: 32px;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 40px;
 }
 
 /* Sidebar */
@@ -632,6 +632,9 @@ body {
 /* Main content */
 .main-content {
     flex: 1;
+    min-width: 0;
+    max-width: none;
+    padding: 0;
 }
 
 /* Smooth scroll */
