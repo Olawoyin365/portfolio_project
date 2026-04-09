@@ -88,9 +88,22 @@
     </header>
 
     <!-- Main Content -->
-    <main class="container">
+    <div class="layout">
+    <aside class="sidebar">
+        <nav class="toc">
+            <h3>Contents</h3>
+            <a href="#about">About</a>
+            <a href="#highlight">Highlighted</a>
+            <a href="#prereq">Pre-Requisites</a>
+            <a href="#projects">Contributions</a>
+            <a href="#skills">Skills</a>
+        </nav>
+    </aside>
+
+    <main class="container main-content">
+        
         <!-- About Section -->
-        <section class="section">
+        <section class="section" id="about">
             <h2 class="section-title">About This Portfolio</h2>
             <div class="about-content">
                 <p>This portfolio documents my contributions to the <strong>Fedora Project</strong> during the <strong>Outreachy May 2026</strong> application phase. I'm working on developing a Small Language Model (SLM) using <strong>RamaLama's RAG capabilities</strong> to assist with Fedora RPM packaging guideline compliance.</p>
@@ -100,7 +113,7 @@
         </section>
 
         <!-- Highlighted Contribution -->
-        <section class="section">
+        <section class="section" id="highlight">
             <div class="highlight-badge">⭐ Highlighted Contribution</div>
             <div class="highlight-card">
                 <h3 class="highlight-title">Docling Document Processing Exploration</h3>
@@ -217,7 +230,7 @@
         </section>
 
         <!-- Pre-Requisite Contributions -->
-        <section class="section">
+        <section class="section" id="prereq">
             <h2 class="section-title">Pre-Requisite Tasks (Completed)</h2>
             <p class="section-subtitle">Foundational contributions demonstrating community engagement, technical writing, and communication skills.</p>
             
@@ -400,7 +413,7 @@
         </section>
 
         <!-- Project Contributions -->
-        <section class="section">
+        <section class="section" id="projects">
             <h2 class="section-title">Project Contributions</h2>
             <p class="section-subtitle">Technical contributions to the RamaLama RAG development project.</p>
             
@@ -679,7 +692,7 @@
         </section>
 
         <!-- Skills Section -->
-        <section class="section">
+        <section class="section" id="skills">
             <h2 class="section-title">Skills Demonstrated</h2>
             <div class="skills-grid">
                 <div class="skill-category">
@@ -718,7 +731,8 @@
             </div>
         </section>
     </main>
-
+    </div>
+    
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
