@@ -191,6 +191,25 @@ body {
     font-weight: 600;
 }
 
+/* Experience Section */
+.experience-content p {
+    margin-bottom: 24px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.experience-content h3 {
+    margin-top: 32px;
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+    color: var(--primary-dark);
+}
+
+.experience-content h3:first-child {
+    margin-top: 0;
+}
+
 /* ==================
    HIGHLIGHTED CONTRIBUTION
    ================== */
