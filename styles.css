@@ -538,6 +538,62 @@ body {
 }
 
 /* ==================
+   SIDEBAR NAVIGATION (Table of Contents)
+   ================== */
+
+/* Layout with Sidebar */
+.layout {
+    display: flex;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+}
+
+.toc {
+    background: var(--bg-white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.toc h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.toc a {
+    display: block;
+    text-decoration: none;
+    color: var(--text-secondary);
+    padding: 6px 0;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+.toc a:hover {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* Main content adjustment */
+.main-content {
+    flex: 1;
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ==================
    RESPONSIVE DESIGN
    ================== */
 
@@ -567,6 +623,15 @@ body {
     .skills-grid {
         grid-template-columns: 1fr;
     }
+   
+   .layout {
+    flex-direction: column;
+   }
+
+   .sidebar {
+    position: relative;
+    width: 100%;
+   }
 }
 
 @media (max-width: 480px) {
@@ -588,60 +653,5 @@ body {
     
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
-    }
-   /* Layout with Sidebar */
-.layout {
-    display: flex;
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Sidebar */
-.sidebar {
-    width: 220px;
-    position: sticky;
-    top: 100px;
-    height: fit-content;
-}
-
-.toc {
-    background: #fff;
-    border: 1px solid #eee;
-    border-radius: 12px;
-    padding: 1rem;
-}
-
-.toc h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-.toc a {
-    display: block;
-    text-decoration: none;
-    color: #555;
-    padding: 6px 0;
-    font-size: 14px;
-    transition: 0.2s ease;
-}
-
-.toc a:hover {
-    color: #000;
-    font-weight: 500;
-}
-
-/* Main content adjustment */
-.main-content {
-    flex: 1;
-}
-@media (max-width: 900px) {
-    .layout {
-        flex-direction: column;
-    }
-
-    .sidebar {
-        position: relative;
-        width: 100%;
     }
 }
