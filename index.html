@@ -120,7 +120,8 @@
                     <p>This portfolio documents my contributions to the <strong>Fedora Project</strong> during the
                         <strong>Outreachy May 2026</strong> application phase. I'm working on developing a Small
                         Language Model (SLM) using <strong>RamaLama's RAG capabilities</strong> to assist with Fedora
-                        RPM packaging guideline compliance.</p>
+                        RPM packaging guideline compliance.
+                    </p>
                     <p><strong>Application Period:</strong> March 20 - April 15, 2026<br>
                         <strong>Last Updated:</strong> <span id="last-updated">March 25, 2026</span>
                     </p>
@@ -897,6 +898,10 @@
         // Active TOC link tracking via Intersection Observer
         (function () {
             const tocLinks = document.querySelectorAll('.toc a');
+
+            // Clear all active states on page load (fixes refresh persistence)
+            tocLinks.forEach(function (l) { l.classList.remove('active'); });
+
             const sections = [];
 
             tocLinks.forEach(function (link) {
@@ -907,22 +912,22 @@
 
             if (!sections.length) return;
 
-            var current = null;
-
-            var observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        tocLinks.forEach(function (l) { l.classList.remove('active'); });
-                        var match = sections.find(function (s) { return s.el === entry.target; });
-                        if (match) {
-                            match.link.classList.add('active');
-                            current = match.id;
+            // Delay observer start so page settles after refresh/scroll-to-top
+            setTimeout(function () {
+                var observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            tocLinks.forEach(function (l) { l.classList.remove('active'); });
+                            var match = sections.find(function (s) { return s.el === entry.target; });
+                            if (match) {
+                                match.link.classList.add('active');
+                            }
                         }
-                    }
-                });
-            }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+                    });
+                }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
 
-            sections.forEach(function (s) { observer.observe(s.el); });
+                sections.forEach(function (s) { observer.observe(s.el); });
+            }, 150);
         })();
     </script>
 </body>
