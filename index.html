@@ -895,39 +895,49 @@
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
         document.getElementById('last-updated').textContent = today.toLocaleDateString('en-US', options);
 
-        // Active TOC link tracking via Intersection Observer
+        // Active TOC link tracking
         (function () {
+            // Disable browser scroll restoration so page always starts at top on refresh
+            if ('scrollRestoration' in history) {
+                history.scrollRestoration = 'manual';
+            }
+            window.scrollTo(0, 0);
+
             const tocLinks = document.querySelectorAll('.toc a');
 
-            // Clear all active states on page load (fixes refresh persistence)
+            // Ensure no active state on load
             tocLinks.forEach(function (l) { l.classList.remove('active'); });
 
             const sections = [];
-
             tocLinks.forEach(function (link) {
                 const id = link.getAttribute('href').replace('#', '');
                 const section = document.getElementById(id);
-                if (section) sections.push({ id: id, el: section, link: link });
+                if (section) sections.push({ el: section, link: link });
             });
 
             if (!sections.length) return;
 
-            // Delay observer start so page settles after refresh/scroll-to-top
-            setTimeout(function () {
+            var observerStarted = false;
+
+            function startObserver() {
+                if (observerStarted) return;
+                observerStarted = true;
+
                 var observer = new IntersectionObserver(function (entries) {
                     entries.forEach(function (entry) {
                         if (entry.isIntersecting) {
                             tocLinks.forEach(function (l) { l.classList.remove('active'); });
                             var match = sections.find(function (s) { return s.el === entry.target; });
-                            if (match) {
-                                match.link.classList.add('active');
-                            }
+                            if (match) match.link.classList.add('active');
                         }
                     });
                 }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
 
                 sections.forEach(function (s) { observer.observe(s.el); });
-            }, 150);
+            }
+
+            // Only start tracking after the user actually scrolls — not on load
+            window.addEventListener('scroll', startObserver, { once: true, passive: true });
         })();
     </script>
 </body>

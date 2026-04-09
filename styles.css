@@ -293,7 +293,7 @@ body {
 
 .contributions-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 24px;
 }
 
@@ -545,7 +545,7 @@ body {
     display: flex;
     gap: 32px;
     max-width: 1400px;
-    margin: 0 auto;
+    margin: 40px auto 0;
     padding: 0 40px;
 }
 
@@ -553,7 +553,7 @@ body {
 .sidebar {
     width: 240px;
     position: sticky;
-    top: 40px;
+    top: 20px;
     height: fit-content;
     flex-shrink: 0;
 }
