@@ -538,52 +538,96 @@ body {
 }
 
 /* ==================
-   SIDEBAR NAVIGATION (Table of Contents)
+   SIDEBAR NAVIGATION (Table of Content)
    ================== */
 
-/* Layout with Sidebar */
 .layout {
     display: flex;
-    gap: 2rem;
+    gap: 32px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 /* Sidebar */
 .sidebar {
-    width: 220px;
+    width: 240px;
     position: sticky;
     top: 100px;
     height: fit-content;
 }
 
+/* TOC Container */
 .toc {
-    background: var(--bg-white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1rem;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(81, 162, 218, 0.2);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
 }
 
+.toc:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* Title */
 .toc h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary-dark);
+    margin-bottom: 16px;
 }
 
+/* Links */
 .toc a {
-    display: block;
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    margin-bottom: 6px;
+    border-radius: 8px;
     text-decoration: none;
     color: var(--text-secondary);
-    padding: 6px 0;
     font-size: 14px;
-    transition: 0.2s ease;
+    transition: all 0.25s ease;
+    position: relative;
 }
 
+/* Hover effect */
 .toc a:hover {
-    color: var(--text-primary);
+    background: rgba(81, 162, 218, 0.1);
+    color: var(--primary-dark);
+    transform: translateX(4px);
+}
+
+/* Active link  */
+.toc a.active {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
     font-weight: 500;
 }
 
-/* Main content adjustment */
+/* Left indicator bar */
+.toc a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 0%;
+    background: var(--primary);
+    border-radius: 2px;
+    transition: height 0.25s ease;
+}
+
+.toc a:hover::before {
+    height: 60%;
+}
+
+/* Main content */
 .main-content {
     flex: 1;
 }
@@ -629,8 +673,18 @@ html {
    }
 
    .sidebar {
-    position: relative;
     width: 100%;
+    position: relative;
+   }
+
+   .toc {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+   }
+
+   .toc a {
+    white-space: nowrap;
    }
 }
 
