@@ -191,12 +191,40 @@ body {
     font-weight: 600;
 }
 
-/* Experience Section */
+.experience-content h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 32px 0 12px 0;
+    color: var(--primary-dark);
+}
+
 .experience-content p {
     margin-bottom: 24px;
     font-size: 1.1rem;
     line-height: 1.8;
     color: var(--text-secondary);
+}
+
+.section-divider {
+    border: 0;
+    height: 1px;
+    background: var(--border);
+    margin: 40px 0;
+}
+
+.btn-text {
+    display: inline-block;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-top: 8px;
+    transition: color 0.2s ease;
+}
+
+.btn-text:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
 }
 
 .experience-content h3 {
